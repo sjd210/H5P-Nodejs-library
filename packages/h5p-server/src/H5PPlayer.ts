@@ -246,7 +246,7 @@ export default class H5PPlayer {
         const model: IPlayerModel = {
             contentId,
             dependencies,
-            downloadPath: this.getDownloadPath(contentId),
+            downloadPath: this.getDownloadPath(contentId, metadata.title),
             integration: await this.generateIntegration(
                 contentId,
                 parameters,
@@ -458,7 +458,7 @@ export default class H5PPlayer {
                     scripts: assets.scripts,
                     styles: assets.styles,
                     url: this.urlGenerator.uniqueContentUrl(contentId),
-                    exportUrl: this.urlGenerator.downloadPackage(contentId)
+                    exportUrl: this.urlGenerator.downloadPackage(contentId, metadata.title)
                 }
             },
             core: {
@@ -624,8 +624,8 @@ export default class H5PPlayer {
         return Object.values(addonsToAdd);
     }
 
-    private getDownloadPath(contentId: ContentId): string {
-        return this.urlGenerator.downloadPackage(contentId);
+    private getDownloadPath(contentId: ContentId, name: string): string {
+        return this.urlGenerator.downloadPackage(contentId, name);
     }
 
     private async getMetadata(

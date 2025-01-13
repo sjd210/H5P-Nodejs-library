@@ -2118,7 +2118,7 @@ export interface IUrlGenerator {
     ): string;
     coreFile(file: string): string;
     coreFiles(): string;
-    downloadPackage(contentId: ContentId): string;
+    downloadPackage(contentId: ContentId, name: string): string;
     editorLibraryFile(file: string): string;
     editorLibraryFiles(): string;
     libraryFile(library: IFullLibraryName, file: string): string;

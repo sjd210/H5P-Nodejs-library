@@ -83,19 +83,32 @@ export default class PackageExporter {
         log.info(`creating package for ${contentId}`);
         await this.checkPermission(contentId, user);
 
+        const parameters = await this.contentStorage.getParameters(
+            contentId,
+            user
+        );
+        const contentStream = await this.createContentFileStream(parameters);
+        
+        const { metadata, metadataStream } = await this.getMetadata(
+            contentId,
+            user
+        );
+
+        //const aa = JSON.stringify(parameters)
+        //const b = JSON.stringify(metadata)
+        const json = JSON.stringify({"content": parameters, "h5p": metadata})
+
+        outputStream.write(json);
+        outputStream.end();
+
+        /*
         // create zip files
         const outputZipFile = new yazl.ZipFile();
         outputZipFile.outputStream.pipe(outputStream);
 
         // get content data
-        const parameters = await this.contentStorage.getParameters(
-            contentId,
-            user
-        );
-        const { metadata, metadataStream } = await this.getMetadata(
-            contentId,
-            user
-        );
+
+
 
         // check if filenames are too long and shorten them in the parameters
         // if necessary; the substitutions that took place are returned and
@@ -107,7 +120,7 @@ export default class PackageExporter {
         );
 
         // add json files
-        const contentStream = await this.createContentFileStream(parameters);
+
         outputZipFile.addReadStream(contentStream, 'content/content.json');
         outputZipFile.addReadStream(metadataStream, 'h5p.json');
 
@@ -120,10 +133,10 @@ export default class PackageExporter {
         );
 
         // add library files
-        await this.addLibraryFiles(metadata, outputZipFile);
+        // await this.addLibraryFiles(metadata, outputZipFile);  --  We store library files once overall rather than for each h5p content
 
         // signal the end of zip creation
-        outputZipFile.end();
+        outputZipFile.end(); */
     }
 
     /**

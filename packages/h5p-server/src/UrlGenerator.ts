@@ -140,8 +140,8 @@ export default class UrlGenerator implements IUrlGenerator {
     public coreFiles = (): string =>
         `${this.baseUrl()}${this.config.coreUrl}/js`;
 
-    public downloadPackage = (contentId: ContentId): string =>
-        `${this.baseUrl()}${this.config.downloadUrl}/${contentId}`;
+    public downloadPackage = (contentId: ContentId, name?: string): string =>
+        name ? `${this.baseUrl()}${this.config.downloadUrl}/${contentId}/${name}` : `${this.baseUrl()}${this.config.downloadUrl}/${contentId}/${contentId}`;
 
     /**
      * Also adds a cache buster based on IH5PConfig.h5pVersion.
