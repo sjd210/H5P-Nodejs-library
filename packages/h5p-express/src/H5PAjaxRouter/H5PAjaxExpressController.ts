@@ -81,7 +81,7 @@ export default class H5PAjaxExpressController {
     };
 
     /**
-     * GET /download/<contentId>
+     * GET /download/<contentId>/<name>
      */
     public getDownload = async (
         req: IRequestWithUser,
@@ -90,7 +90,7 @@ export default class H5PAjaxExpressController {
         // set filename for the package with .h5p extension
         res.setHeader(
             'Content-disposition',
-            `attachment; filename=${req.params.contentId}.h5p`
+            `attachment; filename=${req.params.name}.json` // ${req.params.contentId}.h5p`
         );
         await this.ajaxEndpoint.getDownload(
             req.params.contentId,

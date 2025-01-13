@@ -155,7 +155,7 @@ export default function (
     // serve download links
     if (undefinedOrTrue(routeOptions.routeGetDownload)) {
         router.get(
-            `${h5pEditor.config.downloadUrl}/:contentId`,
+            `${h5pEditor.config.downloadUrl}/:contentId/:name`,
             catchAndPassOnErrors(
                 h5pController.getDownload,
                 routeOptions.handleErrors

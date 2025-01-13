@@ -21,6 +21,7 @@ export default function (
 
     router.get(`/:contentId/play`, async (req: IRequestWithUser, res) => {
         try {
+            res.set('Access-Control-Allow-Origin', '*');
             const content = await h5pPlayer.render(
                 req.params.contentId,
                 req.user,

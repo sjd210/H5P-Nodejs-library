@@ -43,10 +43,6 @@ export default class App extends React.Component {
                             />
                         </Col>
                     </Row>
-                    <Alert variant="warning">
-                        This demo is for debugging and demonstration purposes
-                        only and not suitable for production use!
-                    </Alert>
                     {this.state.loggedIn ? (
                         <ContentListComponent
                             contentService={this.contentService}

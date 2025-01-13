@@ -4,7 +4,7 @@ import path from 'path';
 import * as uploadHelpers from './helpers/upload';
 
 const problemCasesPath = path.resolve('test/data/problem-cases');
-const host = 'http://localhost:8080';
+const host = 'http://localhost:8081';
 
 describe('e2e test: upload content and save', () => {
     beforeAll(async () => {

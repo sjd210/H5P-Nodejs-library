@@ -24,6 +24,7 @@ export default function (
         `${h5pEditor.config.playUrl}/:contentId`,
         async (req: IRequestWithUser, res) => {
             try {
+                res.set('Access-Control-Allow-Origin', '*');
                 const h5pPage = await h5pPlayer.render(
                     req.params.contentId,
                     req.user,

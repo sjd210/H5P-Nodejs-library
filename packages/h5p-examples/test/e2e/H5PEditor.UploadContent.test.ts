@@ -4,7 +4,7 @@ import path from 'path';
 import * as uploadHelpers from './helpers/upload';
 
 const examplesPath = path.resolve('../../test/data/hub-content');
-const host = 'http://localhost:8080';
+const host = 'http://localhost:8081';
 
 describe('e2e test: upload content and save', () => {
     beforeAll(async () => {

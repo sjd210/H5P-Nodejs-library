@@ -98,6 +98,9 @@ export class ContentService implements IContentService {
                 queryString ? `?${queryString}` : ''
             }`
         );
+        console.log(`${this.baseUrl}/${contentId}/play${
+                queryString ? `?${queryString}` : ''
+            }`)
         if (!res || !res.ok) {
             throw new Error(`${res.status} ${res.statusText}`);
         }

@@ -11,7 +11,7 @@ There are two ways of enabling the proxy:
     {
         "proxy": {
             "host": "10.1.2.3",
-            "port": 8080,
+            "port": 8081,
             "protocol": "https" // can also be left out or set to "http" if your proxy can't be accessed with https
         }
     }
@@ -19,8 +19,8 @@ There are two ways of enabling the proxy:
 
 2. Set the HTTPS_PROXY environment variable like this:
 
-    ``HTTPS_PROXY=http://10.1.2.3:8080``
+    ``HTTPS_PROXY=http://10.1.2.3:8081``
     or
-    ``HTTPS_PROXY=https://10.1.2.3:8080``
+    ``HTTPS_PROXY=https://10.1.2.3:8081``
 
     (depending on whether your proxy can be accessed with https).

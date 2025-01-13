@@ -61,7 +61,7 @@ Windows, you must use bash (comes with Git for windows) as a command shell
 2. `npm install`
 3. `npm start`
 
-You can then open the URL [http://localhost:8080](http://localhost:8080) in any
+You can then open the URL [http://localhost:8081](http://localhost:8081) in any
 browser.
 
 ## Contributing
